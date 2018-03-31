@@ -9,6 +9,7 @@ node* create_node(int x);
 void insert_end(node*);
 void display(node*);
 void insert(int data,int n);
+void deleted(int k);
 int main()
 {
 cout<<"\t\t"<<"*****LINKED LIST*****"<<"\t"<<endl;
@@ -16,7 +17,7 @@ cout<<endl<<endl;
 start=NULL;
 rear=NULL;
 char ch='y';
-int data,pos=1,x;
+int data,pos=1,x,r;
 while(ch=='y'||ch=='Y')
 {
 cout<<"Enter the data :";
@@ -56,6 +57,10 @@ else if(pos==0)
 {
 cout<<"terminate"<<endl;
 }
+cout<<"\n do you want to delete any node"<<endl;
+cin>>r;
+deleted(r);
+display(start);
 return 0;
 }
 node* create_node(int k)
@@ -100,3 +105,16 @@ temp2=temp2->link;
 temp1->link=temp2->link;
 temp2->link=temp1;
 }
+void deleted(int l)
+{
+node* temp1=start;
+for(int i=0;i<l-2;i++)
+{
+temp1=temp1->link;
+}
+node* temp2=temp1->link;
+temp1->link=temp2->link;
+delete(temp2);
+}
+
+
