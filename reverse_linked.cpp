@@ -20,7 +20,7 @@ insert(4);//1->2->3->4
 display(start);  //1->2->3->4->
 cout<<"Now reverse the linked list"<<endl;
 reverse(start);  //iterative method to reverse a string
-display(start);
+display(start);  // 4->3->2->1->
 return 0;
 }
 void insert(int k)
