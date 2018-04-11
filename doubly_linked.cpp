@@ -11,10 +11,11 @@ node* next;
 node* prev;
 };
 node* start;
-void insert(int);
-void display(node*);
-void insert_anypos(int,int);
-void deleted(int);
+void insert(int);        // for inserting at the end
+void display(node*);      // for displaying the node in forward direction
+void insert_anypos(int,int);   // for inserting the node at any postition
+void deleted(int);      // for deleting the node at any position
+void reverse(node*);   //for reversing the linked list
 int main()
 {
 int p,x;
@@ -33,6 +34,8 @@ cout<<endl<<"Enter the position of node which you want to delete"<<endl;
 cin>>x;
 deleted(x);
 display(start);
+cout<<endl<<"Now reverse the linked list"<<endl;
+reverse(start);
 return 0;
 }
 void insert(int k)
@@ -49,11 +52,13 @@ return;
 else
 {
 node* temp1=start;
+node* p=start;
 while(temp1->next!=NULL)
 {
 temp1=temp1->next;
 }
 temp1->next=temp;
+temp->prev=temp1;
 }
 }
 void display(node* n)
@@ -111,7 +116,19 @@ temp->next=q->next;
 p->prev=temp;
 delete(q);
 }
-
+void reverse(node* p)
+{
+node* temp=p;
+while(temp->next!=NULL)
+{
+temp=temp->next;
+}
+while(temp!=NULL)
+{
+cout<<temp->data<<"->";
+temp=temp->prev;
+}
+}
 
 
 
