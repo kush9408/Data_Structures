@@ -36,6 +36,7 @@ deleted(x);
 display(start);
 cout<<endl<<"Now reverse the linked list"<<endl;
 reverse(start);
+cout<<endl;
 return 0;
 }
 void insert(int k)
@@ -111,9 +112,9 @@ for(int i=1;i<=pos-2;i++)
 temp=temp->next;
 }
 node* q=temp->next;
-node* p=q->next;
+
 temp->next=q->next;
-p->prev=temp;
+
 delete(q);
 }
 void reverse(node* p)
@@ -129,9 +130,3 @@ cout<<temp->data<<"->";
 temp=temp->prev;
 }
 }
-
-
-
-
-
-
