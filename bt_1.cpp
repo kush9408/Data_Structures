@@ -30,17 +30,17 @@ k->right=insert(k->right,data);
 }
 return k;
 }
-bool search( node* temp,int data)
+int search( node* temp,int data)
 {
-if(temp==NULL) return false;
-else if(data=temp->data) return true;
-else if( data<temp->data) return search(temp->left,data);
+if(temp==NULL) return 0;
+else if(data==temp->data) return 1;
+else if( data<temp->data) return (search(temp->left,data));
 else return search(temp->right,data);
 }
 int main()
 {
 int b,element;                                      
-node * root=NULL;                               
+node *root=NULL;                               
 root=insert(root,6);                                  
 root=insert(root,4);                         
 root=insert(root,8);                       
@@ -49,7 +49,7 @@ root=insert(root,1);
 root=insert(root,5);
 cout<<"Enter the element to be searched from the tree"<<endl;
 cin>>element;
-if(search(root,element)==true) cout<<"Element found"<<endl;
+if(search(root,element)==1) cout<<"Element found"<<endl;
 else cout<<"Element not found"<<endl;
 return 0;
 }
